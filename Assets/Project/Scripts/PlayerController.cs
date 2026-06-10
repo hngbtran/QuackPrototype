@@ -25,8 +25,6 @@ public class PlayerController : MonoBehaviour
     public float flyGravityScale = 0.4f;  // trọng lực nhẹ khi bay
     public float flyMaxUpSpeed = 6f;
 
-    [Header("Double Tap")]
-    public float doubleTapWindow = 0.3f;  // thời gian tính là double tap (giây)
 
     // ── Internal ──────────────────────────────────────────────
     private Rigidbody2D rb;
@@ -37,11 +35,20 @@ public class PlayerController : MonoBehaviour
     private float lastTapTime = -999f;
     private float defaultGravityScale;
 
+    private float waterSurfaceY;      // Y của mặt nước
+    private float halfHeight;         // nửa chiều cao nhân vật
+    private Collider2D waterZone;     // zone nước đang đứng trong
+
+
     // ── Unity Lifecycle ────────────────────────────────────────
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         defaultGravityScale = rb.gravityScale;
+
+        var col = GetComponent<Collider2D>();
+        halfHeight = col != null ? col.bounds.extents.y : 0.4f;
+
     }
 
     void Update()
@@ -56,59 +63,65 @@ public class PlayerController : MonoBehaviour
     void CheckEnvironment()
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
-        isInWater = Physics2D.OverlapCircle(transform.position, 0.3f, waterLayer);
     }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+            Debug.Log($"Trigger hit: '{other.gameObject.name}' | layer index: {other.gameObject.layer} | layer name: {LayerMask.LayerToName(other.gameObject.layer)}");
+
+        if (other.gameObject.layer == LayerMask.NameToLayer("Water"))
+        {
+            Debug.Log("[Quack] Entered water!");
+            isInWater = true;
+            EnterSwim(other);
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Water"))
+        {
+            Debug.Log("[Quack] Exited water!");
+            isInWater = false;
+            waterZone = null;
+            EnterGround();
+        }
+    }
+
 
     // ── Auto State Transition ──────────────────────────────────
     void AutoTransitionState()
     {
-        // Vào nước → chuyển SWIM (override cả FLY)
-        if (isInWater && currentState != MoveState.SWIM)
-        {
-            EnterSwim();
-            return;
-        }
-
-        // Ra khỏi nước, đang SWIM → chuyển GROUND
-        if (!isInWater && currentState == MoveState.SWIM)
-        {
-            EnterGround();
-        }
-
-        // Chạm đất khi đang FLY → chuyển GROUND
+        // Chạm đất khi FLY → GROUND
         if (isGrounded && currentState == MoveState.FLY)
         {
             EnterGround();
         }
     }
 
+
     // ── Input ──────────────────────────────────────────────────
     void HandleInput()
     {
-        // Nhận tap: mouse click hoặc touch
         bool tapped = Input.GetMouseButtonDown(0);
 #if UNITY_IOS || UNITY_ANDROID
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
-            tapped = true;
+    if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+        tapped = true;
 #endif
 
         if (!tapped) return;
 
-        // Kiểm tra double tap
-        bool isDoubleTap = (Time.time - lastTapTime) <= doubleTapWindow;
-        lastTapTime = Time.time;
-
-        if (isDoubleTap && !isInWater)
-        {
-            ToggleFly();
-            return;
-        }
-
-        // Single tap theo state
         switch (currentState)
         {
             case MoveState.GROUND:
-                if (isGrounded) Jump();
+                if (isGrounded)
+                {
+                    Jump(); // tap khi đứng → nhảy, vẫn ở GROUND state
+                }
+                else
+                {
+                    EnterFly(); // tap khi đang trên không → vào FLY
+                }
                 break;
 
             case MoveState.SWIM:
@@ -116,7 +129,7 @@ public class PlayerController : MonoBehaviour
                 break;
 
             case MoveState.FLY:
-                Flap();
+                Flap(); // tap liên tục như Flappy Bird
                 break;
         }
     }
@@ -136,18 +149,50 @@ public class PlayerController : MonoBehaviour
     }
 
     // ── State: SWIM ────────────────────────────────────────────
-    void EnterSwim()
+    void EnterSwim(Collider2D water)
     {
         currentState = MoveState.SWIM;
-        rb.gravityScale = defaultGravityScale * 0.3f; // chìm chậm
-        rb.linearDamping = waterDrag;
+        waterZone = water;
+        // Mặt nước = cạnh trên của water collider
+        waterSurfaceY = water.bounds.max.y;
+        rb.gravityScale = 0f;          // tắt gravity, dùng buoyancy thay
+        rb.linearDamping = 5f;
         Debug.Log("[Quack] State → SWIM");
     }
+
 
     void SwimUp()
     {
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, swimUpForce);
     }
+
+    void ApplyBuoyancy()
+    {
+        // Điểm nhân vật muốn nổi: mặt nước - 30% chiều cao (hơi lún nhẹ)
+        float targetY = waterSurfaceY - halfHeight * 0.3f;
+        float diff = targetY - transform.position.y;
+
+        // Lực kéo về mặt nước (proportional)
+        float buoyancyForce = diff * 12f;
+        // Damping theo chiều dọc để không dao động
+        float dampingForce = -rb.linearVelocity.y * 4f;
+
+        rb.AddForce(new Vector2(0, buoyancyForce + dampingForce), ForceMode2D.Force);
+
+        // Giới hạn tốc độ dọc
+        rb.linearVelocity = new Vector2(
+            rb.linearVelocity.x,
+            Mathf.Clamp(rb.linearVelocity.y, -4f, swimUpForce)
+        );
+    }
+
+
+    void FixedUpdate()
+    {
+        if (currentState == MoveState.SWIM)
+            ApplyBuoyancy();
+    }
+
 
     // ── State: FLY ─────────────────────────────────────────────
     void EnterFly()
@@ -155,6 +200,8 @@ public class PlayerController : MonoBehaviour
         currentState = MoveState.FLY;
         rb.gravityScale = flyGravityScale;
         rb.linearDamping = 0.5f;
+        // Reset velocity Y về 0 để cảm giác "chuyển mode" rõ ràng
+        rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0f);
         Debug.Log("[Quack] State → FLY");
     }
 
