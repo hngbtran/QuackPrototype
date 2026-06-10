@@ -1,0 +1,455 @@
+fileFormatVersion: 2
+guid: 5cd594a657420544c8b7d96cce947952
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7759011376869412420
+    second: simpleBird-Sheet_0
+  - first:
+      213: 2507061407780730583
+    second: simpleBird-Sheet_1
+  - first:
+      213: 3344199347827678266
+    second: simpleBird-Sheet_2
+  - first:
+      213: -5658825307683493656
+    second: simpleBird-Sheet_3
+  - first:
+      213: 4109197634332659228
+    second: simpleBird-Sheet_4
+  - first:
+      213: -4982463616858386502
+    second: simpleBird-Sheet_5
+  - first:
+      213: 2380792924510623877
+    second: simpleBird-Sheet_6
+  - first:
+      213: -5163031265490099084
+    second: simpleBird-Sheet_7
+  - first:
+      213: -429591540631940033
+    second: simpleBird-Sheet_8
+  - first:
+      213: 2075945304094934988
+    second: simpleBird-Sheet_9
+  - first:
+      213: -1127316344200792599
+    second: simpleBird-Sheet_10
+  - first:
+      213: 5090587126931033432
+    second: simpleBird-Sheet_11
+  - first:
+      213: -2131405785791199526
+    second: simpleBird-Sheet_12
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: simpleBird-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 299
+        width: 21
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb1fb710344725490800000000000000
+      internalID: -7759011376869412420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: simpleBird-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 299
+        width: 21
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d67cd0411fdac220800000000000000
+      internalID: 2507061407780730583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: simpleBird-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 249
+        width: 21
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3c9c59a69bf86e20800000000000000
+      internalID: 3344199347827678266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: simpleBird-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 249
+        width: 21
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e8e8894d50d771b0800000000000000
+      internalID: -5658825307683493656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: simpleBird-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 249
+        width: 21
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1e064a1a7dc60930800000000000000
+      internalID: 4109197634332659228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: simpleBird-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 249
+        width: 21
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abf09da1dbbbadab0800000000000000
+      internalID: -4982463616858386502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: simpleBird-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 199
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58818350d864a0120800000000000000
+      internalID: 2380792924510623877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: simpleBird-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 149
+        width: 21
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4742a304b6a3958b0800000000000000
+      internalID: -5163031265490099084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: simpleBird-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 100
+        width: 21
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f34de1615c8c90af0800000000000000
+      internalID: -429591540631940033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: simpleBird-Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 51
+        width: 32
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc708b7514d3fcc10800000000000000
+      internalID: 2075945304094934988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: simpleBird-Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 50
+        width: 28
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e57b6af1c7fa50f0800000000000000
+      internalID: -1127316344200792599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: simpleBird-Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 0
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85d86e6550665a640800000000000000
+      internalID: 5090587126931033432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: simpleBird-Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 0
+        width: 21
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad604b10bb9bb62e0800000000000000
+      internalID: -2131405785791199526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      simpleBird-Sheet_0: -7759011376869412420
+      simpleBird-Sheet_1: 2507061407780730583
+      simpleBird-Sheet_10: -1127316344200792599
+      simpleBird-Sheet_11: 5090587126931033432
+      simpleBird-Sheet_12: -2131405785791199526
+      simpleBird-Sheet_2: 3344199347827678266
+      simpleBird-Sheet_3: -5658825307683493656
+      simpleBird-Sheet_4: 4109197634332659228
+      simpleBird-Sheet_5: -4982463616858386502
+      simpleBird-Sheet_6: 2380792924510623877
+      simpleBird-Sheet_7: -5163031265490099084
+      simpleBird-Sheet_8: -429591540631940033
+      simpleBird-Sheet_9: 2075945304094934988
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
